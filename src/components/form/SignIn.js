@@ -28,7 +28,7 @@ function SignIn() {
     let ans = await login(inputs);
     let Status = String(ans?.status);
     //console.log(Status);
-    console.log(Status);
+    console.log(Status, ans);
     if (Status === "200") {
       history("/app");
     }
