@@ -32,7 +32,7 @@ function Form() {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
+        .get("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user/private_data", {
           withCredentials: true,
         })
         .catch((err) => {
