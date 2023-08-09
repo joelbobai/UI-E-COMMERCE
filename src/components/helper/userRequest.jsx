@@ -13,7 +13,7 @@ export async function reqister(inputs) {
   });
 
   try {
-    const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/signup", {
+    const response = await fetch("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user/signup", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export async function reqister(inputs) {
 
 export async function login(inputs) {
   try {
-    const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user", {
+    const response = await fetch("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
