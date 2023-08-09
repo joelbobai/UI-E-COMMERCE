@@ -1,17 +1,6 @@
-// import React, { useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
-axios.defaults.withCredentials = true;
-// const isLoading = useAuthStore((state) => state.isLoading);
-// const setIsLoading = useAuthStore((state) => state.setIsLoading);
-// setIsLoading(true);
-// console.log(isLoading);
-// if (isLoading) {
-//   toast.loading("Please wait...");
-// }
-// let State = true;
+
 export async function reqister(inputs) {
-  // toast.loading("Please wait...");
   toast.info("Please wait...", {
     position: "top-left",
     autoClose: false,
@@ -22,10 +11,23 @@ export async function reqister(inputs) {
     progress: undefined,
     theme: "light",
   });
-  const res = await axios
-    .post("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/signup", inputs)
-    .catch((err) => {
-      toast.error(err.response.data, {
+
+  try {
+    const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/signup", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include', // Equivalent to axios withCredentials: true
+      body: JSON.stringify(inputs),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorData = await response.json();
+      toast.error(errorData, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -35,19 +37,40 @@ export async function reqister(inputs) {
         progress: undefined,
         theme: "light",
       });
-      console.log(err.response.data);
+      console.log(errorData);
+    }
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
-
-  if (res) {
-    const data = await res;
-    return data;
+    console.log(err.message);
   }
 }
+
 export async function login(inputs) {
-  const res = await axios
-    .post("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user", inputs)
-    .catch((err) => {
-      toast.error(err.response.data, {
+  try {
+    const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include', // Equivalent to axios withCredentials: true
+      body: JSON.stringify(inputs),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorData = await response.json();
+      toast.error(errorData, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -57,36 +80,19 @@ export async function login(inputs) {
         progress: undefined,
         theme: "light",
       });
-      console.log(err.response.data);
+      console.log(errorData);
+    }
+  } catch (err) {
+    toast.error(err.message, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
-
-  if (res) {
-    const data = await res;
-    return data;
+    console.log(err.message);
   }
 }
-// request new verification otp
-// export async function newOTP(email) {
-//   const res = await axios
-//     .post("http://localhost:3001/api/v1/email_verification", {
-//       email: email,
-//     })
-//     .catch((err) => {
-//       toast.error(err.response.data, {
-//         position: "top-center",
-//         autoClose: 5000,
-//         hideProgressBar: false,
-//         closeOnClick: true,
-//         pauseOnHover: true,
-//         draggable: true,
-//         progress: undefined,
-//         theme: "light",
-//       });
-//       console.log(err.response.data);
-//     });
-
-//   if (res) {
-//     const data = await res;
-//     return data;
-//   }
-// }
