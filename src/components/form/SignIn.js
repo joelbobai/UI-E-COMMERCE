@@ -30,7 +30,7 @@ function SignIn() {
     //console.log(Status);
     console.log(Status);
     if (Status === "200") {
-      history("/");
+      history("/app");
     }
   };
 
