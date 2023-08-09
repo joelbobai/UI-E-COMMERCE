@@ -18,7 +18,7 @@ const DashboardLayout = () => {
   useEffect(() => {
     const sendRequest = async () => {
       try {
-        const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
+        const response = await fetch("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user/private_data", {
           method: 'GET',
           credentials: 'include', // Equivalent to axios withCredentials: true
         });
