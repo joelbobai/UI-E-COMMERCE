@@ -5,8 +5,8 @@ import Announcement from "../../components/home/Announcement";
 import Navbar from "../../components/home/Navbar";
 
 import "./index.css";
-import axios from "axios";
-axios.defaults.withCredentials = true;
+//import axios from "axios";
+//axios.defaults.withCredentials = true;
 const DashboardLayout = () => {
   const setUser = useAuthStore((state) => state.setUser);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
@@ -17,30 +17,30 @@ const DashboardLayout = () => {
   // downwards is to keep the user LOGIN
   useEffect(() => {
     const sendRequest = async () => {
-      const res = await axios
-        .get("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
-          withCredentials: true,
-        })
-        .catch((err) => {
-          setIsLoggedIn(false);
-          console.log(err, err.response.data);
+      try {
+        const response = await fetch("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
+          method: 'GET',
+          credentials: 'include', // Equivalent to axios withCredentials: true
         });
 
-      if (res) {
-        const data = await res.data;
-        // console.log(data);
-        return data;
+        if (response.ok) {
+          const data = await response.json();
+          // Process the response data here
+         setIsLoggedIn(true);
+        setUser(data.user);
+          console.log(data);
+        } else {
+          setIsLoggedIn(false);
+          const errorData = await response.json();
+          console.log("Error:", errorData);
+        }
+      } catch (err) {
+        setIsLoggedIn(false);
+        console.log("Error:", err);
       }
     };
-
-    sendRequest().then((data) => {
-      try {
-        setIsLoggedIn(true);
-        setUser(data.user);
-      } catch (error) {
-        setIsLoggedIn(false);
-      }
-    });
+    
+  sendRequest();
   }, [setIsLoggedIn, setUser]);
   if (!isLoggedIn) {
     return <Navigate to="/form" />;
