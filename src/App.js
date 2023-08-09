@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       { element: <Navigate to="/app" replace />, index: true },
       { path: "app", element: <HomePage /> },
-      // { path: "ai", element: <AIGeneralApp /> },
+     { path: "/formm", element:  <Form /> },
 
       { path: "404", element: <Page404 /> },
       { path: "*", element: <Navigate to="/404" replace /> },
