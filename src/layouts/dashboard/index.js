@@ -20,9 +20,6 @@ const DashboardLayout = () => {
       const res = await axios
         .get("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
           withCredentials: true,
-           headers: {
-            'Content-Type': 'application/json'
-        },
         })
         .catch((err) => {
           setIsLoggedIn(false);
