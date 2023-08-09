@@ -14,7 +14,7 @@ export async function newOTP(email) {
     theme: "light",
   });
   const res = await axios
-    .post("http://localhost:3001/api/v1/email_verification", {
+    .post("https://backend-e-commerce-5peyc2vu2-joelbobai.vercel.app/api/v1/email_verification", {
       email: email,
     })
     .catch((err) => {
