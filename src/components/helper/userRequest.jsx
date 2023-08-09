@@ -23,7 +23,7 @@ export async function reqister(inputs) {
     theme: "light",
   });
   const res = await axios
-    .post("https://e-commerce-1ag3.onrender.com/api/v1/user/signup", inputs)
+    .post("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/signup", inputs)
     .catch((err) => {
       toast.error(err.response.data, {
         position: "top-center",
@@ -45,7 +45,7 @@ export async function reqister(inputs) {
 }
 export async function login(inputs) {
   const res = await axios
-    .post("https://backend-e-commerce-5peyc2vu2-joelbobai.vercel.app/api/v1/user", inputs)
+    .post("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user", inputs)
     .catch((err) => {
       toast.error(err.response.data, {
         position: "top-center",
