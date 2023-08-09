@@ -33,9 +33,6 @@ function Form() {
     const sendRequest = async () => {
       const res = await axios
         .get("https://backend-e-commerce-hu9m1c0xh-joelbobai.vercel.app/api/v1/user/private_data", {
-           headers: {
-            'Content-Type': 'application/json'
-        },
           withCredentials: true,
         })
         .catch((err) => {
