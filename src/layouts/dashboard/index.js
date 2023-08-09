@@ -43,7 +43,7 @@ const DashboardLayout = () => {
     });
   }, [setIsLoggedIn, setUser]);
   if (!isLoggedIn) {
-    return <Navigate to="/form" />;
+    return <Navigate to="/formm" />;
   } else {
     return (
       <div
