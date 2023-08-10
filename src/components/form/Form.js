@@ -4,11 +4,17 @@ import SignUp from "./SignUp";
 import log from "./img/log.svg";
 import reg from "./img/register.svg";
 import { useAuthStore } from "./../../store/store";
+import { url } from "../helper/userRequest";
 import "./style.css";
 import axios from "axios";
-axios.defaults.withCredentials = true;
+
 
 function Form() {
+  axios.defaults.withCredentials = true;
+  let authToken = useAuthStore((state) => {
+    return state.auth.authToken;
+  });
+  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   // User Login
   // const [login, setLogin] = useState(false);
@@ -32,9 +38,7 @@ function Form() {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user/private_data", {
-          withCredentials: true,
-        })
+        .get(`${url()}/api/v1/user/private_data`)
         .catch((err) => {
           setIsLoggedIn(false);
           // console.log(err, err.response.data);
