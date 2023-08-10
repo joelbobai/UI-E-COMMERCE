@@ -7,6 +7,7 @@ import "./style.css";
 function SignUp() {
   const history = useNavigate();
   const setUser = useAuthStore((state) => state.setUser);
+  const [pass, setPass] = useState(true);
   const [dateOF, setDateOF] = useState("text");
   const [inputs, setInputs] = useState({
     name: "",
@@ -146,27 +147,42 @@ function SignUp() {
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
+
         <input
           onChange={handleInputChange}
           value={inputs.password}
-          type="password"
+          type={pass ? "password" : "text"}
           class="password"
           name="password"
           placeholder="Enter your password"
           required
+          style={{ marginRight: "30px" }}
         />
+        {/* {pass ? (
+            <i class="fas fa-eye-slash" onClick={() => setPass(!pass)}></i>
+          ) : (
+            <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+          )} */}
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
-        <input
-          onChange={handleInputChange}
-          value={inputs.passwordConfirm}
-          type="password"
-          class="password"
-          name="passwordConfirm"
-          placeholder="Confirm your password"
-          required
-        />
+        <div>
+          <input
+            onChange={handleInputChange}
+            value={inputs.passwordConfirm}
+            type={pass ? "password" : "text"}
+            class="password"
+            name="passwordConfirm"
+            placeholder="Confirm your password"
+            required
+            style={{ marginRight: "30px" }}
+          />
+          {pass ? (
+            <i class="fas fa-eye-slash" onClick={() => setPass(!pass)}></i>
+          ) : (
+            <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+          )}
+        </div>
       </div>
 
       <input type="submit" className="btn" value="Register" />
