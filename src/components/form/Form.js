@@ -73,10 +73,10 @@ function Form() {
         <div className="panel left-panel">
           <div className="content">
             <h3>Don't have an account ?</h3>
-            // <p>
-            //   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-            //   ex ratione. Aliquid!
-            // </p>
+           {/*   <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+              ex ratione. Aliquid!
+            </p> */}
             <button
               onClick={handleSignUpClick}
               className="btn transparent"
@@ -90,10 +90,11 @@ function Form() {
         <div className="panel right-panel">
           <div className="content">
             <h3>Already have account ?</h3>
-            // <p>
-            //   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            //   laboriosam ad deleniti.
-            // </p>
+                {/*  
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              laboriosam ad deleniti.
+            </p>*/}
             <button
               onClick={handleSignInClick}
               className="btn transparent"
