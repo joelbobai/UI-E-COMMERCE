@@ -106,7 +106,7 @@ function SignUp() {
 
   return (
     <form onSubmit={handleFormSubmit} className="sign-up-form">
-      <h2 className="title">Sign up</h2>
+      <h2 className="title">Create Account</h2>
       <div className="input-field">
         <i className="fas fa-user"></i>
         <input
@@ -165,7 +165,7 @@ function SignUp() {
         />
       </div>
 
-      <input type="submit" className="btn" value="Sign up" />
+      <input type="submit" className="btn" value="Register" />
       <p className="social-text">Or Sign up with social platforms</p>
       <div className="social-media">
         <a href="https://au.indeed.com/" className="social-icon">
