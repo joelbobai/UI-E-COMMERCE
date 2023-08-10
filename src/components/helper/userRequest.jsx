@@ -11,7 +11,7 @@ axios.defaults.withCredentials = true;
 // }
 // let State = true;
 export function url() {
-  return "https://e-commerce-backend-46rw.onrender.com";
+  return "https://backend-e-commerce-virid.vercel.app";
 }
 export async function reqister(inputs) {
   // toast.loading("Please wait...");
