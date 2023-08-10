@@ -77,6 +77,7 @@ function Form() {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
             </p> */}
+              <br />
             <button
               onClick={handleSignUpClick}
               className="btn transparent"
@@ -95,6 +96,7 @@ function Form() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
             </p>*/}
+            <br />
             <button
               onClick={handleSignInClick}
               className="btn transparent"
