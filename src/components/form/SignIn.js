@@ -58,7 +58,7 @@ const [pass, setPass] = useState(true);
         </div>
         <div className="input-field">
           <i className="fas fa-lock"></i>
-          <div>
+          
             <input
               onChange={handleInputChange}
               value={inputs.password}
@@ -67,15 +67,19 @@ const [pass, setPass] = useState(true);
               class="password"
               placeholder="Enter your password"
               required
-              style={{ marginRight: "30px" }}
+             
             />
 
             {pass ? (
-              <i class="fas fa-eye-slash" onClick={() => setPass(!pass)}></i>
-            ) : (
-              <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
-            )}
-          </div>
+            <i
+              class="fas fa-eye-slash"
+              style={{ position: "absolute", right: 20 }}
+              onClick={() => setPass(!pass)}
+            ></i>
+          ) : (
+            <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+          )}
+          
         </div>
         <input type="submit" value="Login" className="btn solid" />
         <p className="social-text">Or Sign in with social platforms</p>
