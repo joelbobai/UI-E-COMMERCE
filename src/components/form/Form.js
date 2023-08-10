@@ -89,7 +89,7 @@ function Form() {
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>Already have account ? ?</h3>
+            <h3>Already have account ?</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
