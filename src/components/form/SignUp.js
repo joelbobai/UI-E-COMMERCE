@@ -166,7 +166,7 @@ function SignUp() {
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
-        <div>
+        
           <input
             onChange={handleInputChange}
             value={inputs.passwordConfirm}
@@ -175,14 +175,18 @@ function SignUp() {
             name="passwordConfirm"
             placeholder="Confirm your password"
             required
-            style={{ marginRight: "30px" }}
+            
           />
           {pass ? (
-            <i class="fas fa-eye-slash" onClick={() => setPass(!pass)}></i>
+            <i
+              class="fas fa-eye-slash"
+              style={{ position: "absolute", right: 20 }}
+              onClick={() => setPass(!pass)}
+            ></i>
           ) : (
-            <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+            <i class="fa fa-eye" style={{ position: "absolute", right: 20 }} onClick={() => setPass(!pass)}></i>
           )}
-        </div>
+      
       </div>
 
       <input type="submit" className="btn" value="Register" />
