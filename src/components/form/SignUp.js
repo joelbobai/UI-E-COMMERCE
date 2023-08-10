@@ -7,6 +7,7 @@ import "./style.css";
 function SignUp() {
   const history = useNavigate();
   const setUser = useAuthStore((state) => state.setUser);
+  const [dateOF, setDateOF] = useState("text");
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -134,7 +135,9 @@ function SignUp() {
         <input
           onChange={handleInputChange}
           value={inputs.date}
-          type="date"
+           onFocus={() => setDateOF("date")}
+          onBlur={() => setDateOF("text")}
+          type={dateOF}
           class="date"
           name="date"
           required
