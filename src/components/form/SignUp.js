@@ -138,6 +138,7 @@ function SignUp() {
            onFocus={() => setDateOF("date")}
           onBlur={() => setDateOF("text")}
           type={dateOF}
+          placeholder="Enter your date of birth"
           class="date"
           name="date"
           required
