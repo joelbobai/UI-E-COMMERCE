@@ -8,6 +8,8 @@ function SignIn() {
   let isLoggedIn = useAuthStore((state) => {
     return state.auth.isLoggedIn;
   });
+
+  const setAuthToken = useAuthStore((state) => state.setAuthToken);
   // const notify = () => toast.error("Wow so easy!");
   const history = useNavigate();
 
@@ -26,12 +28,15 @@ function SignIn() {
     event.preventDefault();
     // using an HTTP request
     let ans = await login(inputs);
+    // console.log();
     let Status = String(ans?.status);
     //console.log(Status);
-    console.log(Status, ans);
-    // if (Status === "200") {
-      history("/app");
-    //}
+    console.log(Status);
+    if (Status === "200") {
+      //console.log(ans.data.user._id+"="+ans.data.user.token);
+      setAuthToken(ans.data.user._id+"="+ans.data.user.token);
+      history("/");
+    }
   };
 
   if (isLoggedIn) {
