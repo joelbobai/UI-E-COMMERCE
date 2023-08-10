@@ -3,11 +3,16 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useAuthStore } from "./../../store/store";
 import Announcement from "../../components/home/Announcement";
 import Navbar from "../../components/home/Navbar";
-
+import { url } from "../../components/helper/userRequest";
 import "./index.css";
-//import axios from "axios";
-//axios.defaults.withCredentials = true;
+import axios from "axios";
 const DashboardLayout = () => {
+  axios.defaults.withCredentials = true;
+  let authToken = useAuthStore((state) => {
+    return state.auth.authToken;
+  });
+//   console.log(authToken);
+  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
   const setUser = useAuthStore((state) => state.setUser);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
   let isLoggedIn = useAuthStore((state) => {
@@ -17,30 +22,27 @@ const DashboardLayout = () => {
   // downwards is to keep the user LOGIN
   useEffect(() => {
     const sendRequest = async () => {
-      try {
-        const response = await fetch("https://backend-e-commerce-558w5gv0q-joelbobai.vercel.app/api/v1/user/private_data", {
-          method: 'GET',
-          credentials: 'include', // Equivalent to axios withCredentials: true
+      const res = await axios
+        .get(`${url()}/api/v1/user/private_data`).catch((err) => {
+          setIsLoggedIn(false);
+          console.log(err, err.response.data);
         });
 
-        if (response.ok) {
-          const data = await response.json();
-          // Process the response data here
-         setIsLoggedIn(true);
-        setUser(data.user);
-          console.log(data);
-        } else {
-          setIsLoggedIn(false);
-          const errorData = await response.json();
-          console.log("Error:", errorData);
-        }
-      } catch (err) {
-        setIsLoggedIn(false);
-        console.log("Error:", err);
+      if (res) {
+        const data = await res.data;
+        // console.log(data);
+        return data;
       }
     };
-    
-  sendRequest();
+
+    sendRequest().then((data) => {
+      try {
+        setIsLoggedIn(true);
+        setUser(data.user);
+      } catch (error) {
+        setIsLoggedIn(false);
+      }
+    });
   }, [setIsLoggedIn, setUser]);
   if (!isLoggedIn) {
     return <Navigate to="/form" />;
