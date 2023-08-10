@@ -12,7 +12,7 @@ function SignIn() {
   const setAuthToken = useAuthStore((state) => state.setAuthToken);
   // const notify = () => toast.error("Wow so easy!");
   const history = useNavigate();
-
+const [pass, setPass] = useState(true);
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -58,15 +58,24 @@ function SignIn() {
         </div>
         <div className="input-field">
           <i className="fas fa-lock"></i>
-          <input
-            onChange={handleInputChange}
-            value={inputs.password}
-            type="password"
-            name="password"
-            class="password"
-            placeholder="Enter your password"
-            required
-          />
+          <div>
+            <input
+              onChange={handleInputChange}
+              value={inputs.password}
+              type={pass ? "password" : "text"}
+              name="password"
+              class="password"
+              placeholder="Enter your password"
+              required
+              style={{ marginRight: "30px" }}
+            />
+
+            {pass ? (
+              <i class="fas fa-eye-slash" onClick={() => setPass(!pass)}></i>
+            ) : (
+              <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+            )}
+          </div>
         </div>
         <input type="submit" value="Login" className="btn solid" />
         <p className="social-text">Or Sign in with social platforms</p>
