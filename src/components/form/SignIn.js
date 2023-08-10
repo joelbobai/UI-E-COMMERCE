@@ -44,7 +44,7 @@ const [pass, setPass] = useState(true);
   } else {
     return (
       <form onSubmit={handleFormSubmit} className="sign-in-form">
-        <h2 className="title">Hello Again!</h2>
+        <h2 className="title">NovaLifetyle<br />Hello Again!</h2>
         <div className="input-field">
           <i className="fas fa-user"></i>
           <input
