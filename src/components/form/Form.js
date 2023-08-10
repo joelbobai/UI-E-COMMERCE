@@ -72,7 +72,7 @@ function Form() {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>New here ?</h3>
+            <h3Don't have an account ?</h3>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
@@ -82,14 +82,14 @@ function Form() {
               className="btn transparent"
               id="sign-up-btn"
             >
-              Sign up
+              Register
             </button>
           </div>
           <img src={log} className="image" alt="loginIcon" />
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>One of us ?</h3>
+            <h3>Already have account ? ?</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
@@ -99,7 +99,7 @@ function Form() {
               className="btn transparent"
               id="sign-in-btn"
             >
-              Sign in
+              Login
             </button>
           </div>
           <img src={reg} className="image" alt="regIcon" />
