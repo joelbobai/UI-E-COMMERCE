@@ -77,7 +77,7 @@ const [pass, setPass] = useState(true);
               onClick={() => setPass(!pass)}
             ></i>
           ) : (
-            <i class="fa fa-eye" onClick={() => setPass(!pass)}></i>
+            <i class="fa fa-eye" style={{ position: "absolute", right: 20 }} onClick={() => setPass(!pass)}></i>
           )}
           
         </div>
