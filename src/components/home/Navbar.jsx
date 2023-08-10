@@ -105,7 +105,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>E-COMMERCE</Logo>
+          <Logo>NovaLifetyle</Logo>
         </Center>
         <Right>
           {/* <MenuItem>REGISTER</MenuItem> */}
