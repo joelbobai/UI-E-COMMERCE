@@ -81,7 +81,7 @@ const Navbar = () => {
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
-  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+  axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("jwt")}`;
   const setAuthToken = useAuthStore((state) => state.setAuthToken);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
    const [icon, setIcon] = useState(false);
