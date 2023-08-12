@@ -163,6 +163,7 @@ const Navbar = () => {
           width: "100%",
           height: 30,
           backgroundColor: "#5995fd",
+          alignItems: "center";
           display: icon ? "block" : "none",
         }}
       >
