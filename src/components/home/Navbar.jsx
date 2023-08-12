@@ -162,6 +162,8 @@ const Navbar = () => {
         style={{
           width: "100%",
           height: 30,
+           paddingLeft: 5,
+          paddingRight: 5,
           backgroundColor: "#5995fd",
           display: icon ? "block" : "none",
         }}
