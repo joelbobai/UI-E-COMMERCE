@@ -168,7 +168,7 @@ const Navbar = () => {
       >
         <Center>
           <SearchContainer style={{ marginLeft: 0}}>
-            <Input placeholder="Search" style={{ width: "100%"}} />
+            <Input placeholder="Search" style={{ width: "100%",  display: "block"}} />
           </SearchContainer>
         </Center>
       </div>
