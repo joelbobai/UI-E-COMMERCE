@@ -34,6 +34,7 @@ const [pass, setPass] = useState(true);
     console.log(Status);
     if (Status === "200") {
       //console.log(ans.data.user._id+"="+ans.data.user.token);
+       localStorage.setItem("jwt", ans.data.user._id + "=" + ans.data.user.token );
       setAuthToken(ans.data.user._id+"="+ans.data.user.token);
       history("/");
     }
