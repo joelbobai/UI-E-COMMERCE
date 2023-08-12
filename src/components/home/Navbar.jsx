@@ -113,6 +113,7 @@ const Navbar = () => {
               style={{ color: "gray", fontSize: 16 }}
               onClick={() => setIcon(!icon)}
             ></i>
+              </Icon>
             <Input placeholder="Search" />
             {/* <Search style={{ color: "gray", fontSize: 16 }} /> */}
           </SearchContainer>
