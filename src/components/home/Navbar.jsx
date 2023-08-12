@@ -163,12 +163,11 @@ const Navbar = () => {
           width: "100%",
           height: 30,
           backgroundColor: "#5995fd",
-          alignItems: "center";
           display: icon ? "block" : "none",
         }}
       >
         <Center>
-          <SearchContainer style={{ marginLeft: 0}}>
+          <SearchContainer style={{ marginLeft: 0, width: "100%"}}>
             <Input placeholder="Search" style={{ width: "100%",  display: "block"}} />
           </SearchContainer>
         </Center>
