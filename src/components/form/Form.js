@@ -14,7 +14,7 @@ function Form() {
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
-  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+  axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("jwt")}`;
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   // User Login
   // const [login, setLogin] = useState(false);
