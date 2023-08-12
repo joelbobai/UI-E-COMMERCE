@@ -100,7 +100,7 @@ const Navbar = () => {
     return new Error("Unable TO Logout. Please try again");
   };
   const handleLogout = async () => {
-    await sendLogoutReq().then(() => { setIsLoggedIn(false);setAuthToken("");});
+    await sendLogoutReq().then(() => { setIsLoggedIn(false);setAuthToken("");localStorage.setItem("jwt","");});
   };
   return (
     <Container>
