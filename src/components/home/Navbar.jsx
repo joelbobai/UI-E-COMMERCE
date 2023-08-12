@@ -33,7 +33,7 @@ const Language = styled.span`
 `;
 
 const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
+  border: 1 solid lightgray;
   display: flex;
   align-items: center;
   margin-left: 25px;
@@ -111,7 +111,7 @@ const Navbar = () => {
             <Icon>
             <i
               class="fas fa-search"
-              style={{ color: "gray", fontSize: 16 }}
+              style={{ color: "#fff", fontSize: 16 }}
               onClick={() => setIcon(!icon)}
             ></i>
               </Icon>
