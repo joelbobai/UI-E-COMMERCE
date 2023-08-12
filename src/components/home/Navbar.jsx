@@ -1,6 +1,6 @@
 //import { Badge } from "@material-ui/core";
 //import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useAuthStore } from "../../store/store";
@@ -38,12 +38,11 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
-  ${mobile({ display: "none" })}
 `;
 
 const Input = styled.input`
   border: none;
-  ${mobile({ width: "50px" })}
+  ${mobile({ width: "50px",display: "none" })}})}
 `;
 
 const Center = styled.div`
@@ -55,6 +54,11 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   ${mobile({ fontSize: "24px" })}
+`;
+const Icon = styled.span`
+  cursor: pointer;
+  display: none;
+  ${mobile({ display: "block" })}
 `;
 const Right = styled.div`
   flex: 1;
@@ -79,6 +83,7 @@ const Navbar = () => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
   const setAuthToken = useAuthStore((state) => state.setAuthToken);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
+   const [icon, setIcon] = useState(false);
   const sendLogoutReq = async () => {
     const res = await axios.post(
       `${url()}/api/v1/user/logout`,
@@ -102,6 +107,12 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
           <SearchContainer>
+            <Icon>
+            <i
+              class="fas fa-search"
+              style={{ color: "gray", fontSize: 16 }}
+              onClick={() => setIcon(!icon)}
+            ></i>
             <Input placeholder="Search" />
             {/* <Search style={{ color: "gray", fontSize: 16 }} /> */}
           </SearchContainer>
@@ -145,6 +156,20 @@ const Navbar = () => {
           </MenuItem>
         </Right>
       </Wrapper>
+      <div
+        style={{
+          width: "100%",
+          height: 30,
+          backgroundColor: "#5995fd",
+          display: icon ? "block" : "none",
+        }}
+      >
+        <Center>
+          <SearchContainer>
+            <Input placeholder="Search" style={{ width: "100%" }} />
+          </SearchContainer>
+        </Center>
+      </div>
     </Container>
   );
 };
