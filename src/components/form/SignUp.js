@@ -12,6 +12,7 @@ function SignUp() {
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
+    secretWord: "",
     date: "",
     password: "",
     passwordConfirm: "",
@@ -34,6 +35,7 @@ function SignUp() {
     let date = inputs.date;
     let passwordConfirm = inputs.passwordConfirm;
     let password = inputs.password;
+    let secretWord = inputs.secretWord;
     // Trim
     /* eslint-disable no-useless-escape */
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
@@ -59,6 +61,9 @@ function SignUp() {
     } else if (password !== passwordConfirm) {
       errorHandle("The password is not the same with the Confirm-Password");
       valid = false;
+    } else if (!secretWord) {
+      errorHandle("Enter your secret word");
+      valid = false;
     }
 
     if (!dateRegex.test(date)) {
@@ -82,7 +87,7 @@ function SignUp() {
     }
 
     if (valid) {
-      //console.log(inputs);
+      console.log(inputs);
       let ans = await reqister(inputs);
       let Status = String(ans?.status);
       console.log(Status);
@@ -132,11 +137,22 @@ function SignUp() {
         />
       </div>
       <div className="input-field">
+        <i class="fas fa-user-secret"></i>
+        <input
+          onChange={handleInputChange}
+          value={inputs.secretWord}
+          type="text"
+          name="secretWord"
+          placeholder="Enter your secret word"
+          required
+        />
+      </div>
+      <div className="input-field">
         <i class="fas fa-calendar"></i>
         <input
           onChange={handleInputChange}
           value={inputs.date}
-           onFocus={() => setDateOF("date")}
+          onFocus={() => setDateOF("date")}
           onBlur={() => setDateOF("text")}
           type={dateOF}
           placeholder="Enter your date of birth"
@@ -166,27 +182,29 @@ function SignUp() {
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
-        
-          <input
-            onChange={handleInputChange}
-            value={inputs.passwordConfirm}
-            type={pass ? "password" : "text"}
-            class="password"
-            name="passwordConfirm"
-            placeholder="Confirm your password"
-            required
-            
-          />
-          {pass ? (
-            <i
-              class="fas fa-eye-slash"
-              style={{ position: "absolute", right: 20 }}
-              onClick={() => setPass(!pass)}
-            ></i>
-          ) : (
-            <i class="fa fa-eye" style={{ position: "absolute", right: 20 }} onClick={() => setPass(!pass)}></i>
-          )}
-      
+
+        <input
+          onChange={handleInputChange}
+          value={inputs.passwordConfirm}
+          type={pass ? "password" : "text"}
+          class="password"
+          name="passwordConfirm"
+          placeholder="Confirm your password"
+          required
+        />
+        {pass ? (
+          <i
+            class="fas fa-eye-slash"
+            style={{ position: "absolute", right: 20 }}
+            onClick={() => setPass(!pass)}
+          ></i>
+        ) : (
+          <i
+            class="fa fa-eye"
+            style={{ position: "absolute", right: 20 }}
+            onClick={() => setPass(!pass)}
+          ></i>
+        )}
       </div>
 
       <input type="submit" className="btn" value="Register" />
