@@ -210,10 +210,10 @@ const Cart = () => {
   };
   const submit = () => {
     if (isLoggedIn.secretWord === secretWords) {
-      alert("secret words is correct you are now allowed to make a payment");
+      alert("Secret words is correct you are now allowed to make a payment.");
       setPay(false);
     } else {
-      alert("secret words is incorrect you are not allowed to make a payment");
+      alert("Secret words is incorrect you are not allowed to make a payment.");
     }
   };
 
