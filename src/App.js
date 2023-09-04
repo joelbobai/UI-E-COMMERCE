@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 //import { useAuthStore } from "./store/store";
 import Verification from "./components/verification/Verification";
+import Cart from "./pages/Cart";
 import DashboardLayout from "./layouts/dashboard";
 import HomePage from "./pages/HomePage";
 import Form from "./components/form/Form";
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       { element: <Navigate to="/app" replace />, index: true },
       { path: "app", element: <HomePage /> },
-    // { path: "/formm", element:  <Form></Form> },
+      // { path: "/formm", element:  <Form></Form> },
 
       { path: "404", element: <Page404 /> },
       { path: "*", element: <Navigate to="/404" replace /> },
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/verification",
     element: <Verification></Verification>,
+  },
+  {
+    path: "/cart",
+    element: <Cart></Cart>,
   },
 ]);
 function App() {
